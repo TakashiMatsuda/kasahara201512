@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 
 """
 it works well only the case that the gap score is negative.
@@ -17,6 +17,12 @@ trc = {
 import sys
 argvs = sys.argv
 
+
+def match(a, b):
+    if a == b:
+        return MATCH
+    else:
+        return MISMATCH
 
 
 def calc_alignment(x, y):
@@ -81,7 +87,9 @@ def calc_alignment(x, y):
     print("startpoint:"+str(startpoint))
     print("alignment:"+str(alignment))
 
+    return alignment
 
-x = argvs[1]
-y = argvs[2]
-alignment = calc_alignment(x, y)
+if __name__ == "__main__":
+    x = argvs[1]
+    y = argvs[2]
+    alignment = calc_alignment(x, y)
